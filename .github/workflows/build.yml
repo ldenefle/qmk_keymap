@@ -1,0 +1,40 @@
+name: Build QMK firmware
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: qmkfm/qmk_cli
+    strategy:
+      fail-fast: false
+      matrix:
+        keebs: [
+          {name: "lucii", model: "dz60", bin: "dz60"},
+          {name: "wooden", model: "gh60/satan", bin: "gh60_satan"},
+        ]
+
+    steps:
+    - name: Checkout QMK
+      uses: actions/checkout@v3
+      with:
+        repository: qmk/qmk_firmware
+        submodules: recursive
+
+    - name: Checkout keyboards mapping as overlay
+      uses: actions/checkout@v3
+      with:
+        path: overlay/
+
+    - name: Copy overlays on top of qmk_firmware
+      run: cp -r overlay/* .
+
+    - name: Build firmware
+      run: qmk compile -km ${{ matrix.keebs.name }} -kb ${{ matrix.keebs.model }}
+
+    - name: Archive firmware
+      uses: actions/upload-artifact@v3
+      continue-on-error: true
+      with:
+        name: ${{ matrix.keebs.name }}.hex
+        path: ${{ matrix.keebs.bin }}_${{ matrix.keebs.name }}.hex
+
