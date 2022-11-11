@@ -11,6 +11,7 @@ jobs:
         keebs: [
           {name: "lucii", model: "dz60", bin: "dz60"},
           {name: "wooden", model: "gh60/satan", bin: "gh60_satan"},
+          {name: "multicolor", model: "dz60", bin: "dz60"},
         ]
 
     steps:
