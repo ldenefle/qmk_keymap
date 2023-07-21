@@ -20,6 +20,7 @@ jobs:
       with:
         repository: qmk/qmk_firmware
         submodules: recursive
+        ref: 0.21.6
 
     - name: Checkout keyboards mapping as overlay
       uses: actions/checkout@v3
