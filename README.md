@@ -8,7 +8,7 @@ This repository contains the source files to generate the firmwares for my three
 # Repository structure
 
 The firmwares are based on the ubiquiitous [QMK Firmware](https://github.com/qmk/qmk_firmware). It's aimed
-to be structured as an overlay for QMK, which gives me great flexibility on the features I can used while
+to be structured as an userspace compilation database for QMK, which gives me great flexibility on the features I can used while
 not have to install a compilation environment on my machine. 
 
-The firmwares are built on the Github CI and exist as artifact of Actions.
+The firmwares are built on the Github CI and exist as artifact of Actions and Releases.

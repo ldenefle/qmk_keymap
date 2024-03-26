@@ -1,0 +1,8 @@
+{
+    "userspace_version": "1.0",
+    "build_targets": [
+        ["dz60", "lucii"],
+        ["gh60/satan", "wooden"],
+        ["dz60", "multicolor"],
+    ]
+}
