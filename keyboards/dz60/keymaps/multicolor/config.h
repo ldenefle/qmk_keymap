@@ -1,3 +1,3 @@
 #pragma once
 
-#define DEBOUNCE 20
+#define DEBOUNCE 10
